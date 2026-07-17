@@ -5,7 +5,7 @@
 //Nombre: Juan Carlos Orozco Navarro
 //Programa: Ingenieria de Sistemas
 //Codigo fuente: Autoria Juan Carlos Orozco Navarro
-//Fecha: 2026-07-17
+//Fecha update: 2026-07-17
 //Descripcion: Fase 4 - PAQUETE 1 (ESTRUCTURA). Se suben  estructura
 //             de clases y metodos del sistema de reservas "Software FJ":
 //             clase abstracta base, Cliente, clase abstracta Servicio con tres

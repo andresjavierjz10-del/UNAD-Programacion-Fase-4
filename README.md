@@ -21,9 +21,9 @@ El proyecto está organizado en **tres paquetes progresivos**:
 
 | Paquete | Archivo | Descripción |
 |---------|---------|-------------|
-| **1. Estructura** | `paquete1_estructura.py` | Estructura de clases y métodos (clase abstracta base, `Cliente`, `Servicio` y sus 3 servicios, `Reserva`, gestor central). |
-| **2. Excepciones** | `paquete2_excepciones.py` | Agrega excepciones personalizadas, logging y los patrones `try/except`, `try/except/else`, `try/except/finally` y encadenamiento. |
-| **3. Completo** | `paquete3_sistema_completo.py` | Integra todo y ejecuta una simulación de **18 operaciones** (válidas e inválidas). |
+| **1. Estructura** | `sistema_integral_orientado_objetos.py` | Estructura de clases y métodos (clase abstracta base, `Cliente`, `Servicio` y sus 3 servicios, `Reserva`, gestor central). |
+| **2. Excepciones** | `sistema_integral_orientado_objetos.py` | Agrega excepciones personalizadas, logging y los patrones `try/except`, `try/except/else`, `try/except/finally` y encadenamiento. |
+| **3. Completo** | `sistema_integral_orientado_objetos.py` | Integra todo y ejecuta una simulación de **18 operaciones** (válidas e inválidas). |
 
 Otros archivos:
 - `Documento_Fase4_Manejo_Excepciones.docx` — Documento en Word (normas APA).

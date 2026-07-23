@@ -90,23 +90,23 @@ Actualiza el **estado** y el **% de avance** de cada tarea. Estados sugeridos:
 
 | Tarea | Responsable | Estado | Avance |
 |-------|-------------|--------|--------|
-| T1.1 | Juan Carlos Orozco | ⬜ Pendiente | 100% |
-| T1.2 | Juan Carlos Orozco | ⬜ Pendiente | 5% |
-| T1.3 | Juan Carlos Orozco | ⬜ Pendiente | 100% |
-| T2.1 | Santiago Pachon Moreno | ⬜ Pendiente | 0% |
-| T2.2 | Santiago Pachon Moreno | ⬜ Pendiente | 0% |
-| T2.3 | Santiago Pachon Moreno | ⬜ Pendiente | 0% |
-| T3.1 | [Integrante 3] | ⬜ Pendiente | 0% |
-| T3.2 | [Integrante 3] | ⬜ Pendiente | 0% |
-| T3.3 | [Integrante 3] | ⬜ Pendiente | 0% |
-| T4.1 | [Integrante 4] | ⬜ Pendiente | 0% |
-| T4.2 | [Integrante 4] | ⬜ Pendiente | 0% |
-| T4.3 | [Integrante 4] | ⬜ Pendiente | 0% |
-| T5.1 | [Integrante 5] | ⬜ Pendiente | 0% |
-| T5.2 | [Integrante 5] | ⬜ Pendiente | 0% |
-| T5.3 | [Integrante 5] | ⬜ Pendiente | 0% |
+| T1.1 | Juan Carlos Orozco | ✅ Completada | 100% |
+| T1.2 | Juan Carlos Orozco | ✅ Completada | 100% |
+| T1.3 | Juan Carlos Orozco | ✅ Completada | 100% |
+| T2.1 | Santiago Pachon Moreno | 🟨 En progreso | 0% |
+| T2.2 | Santiago Pachon Moreno | 🟨 En progreso | 0% |
+| T2.3 | Santiago Pachon Moreno | 🟨 En progreso | 0% |
+| T3.1 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T3.2 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T3.3 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T4.1 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T4.2 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T4.3 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T5.1 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T5.2 | [Juan Carlos Orozco] | ✅ Completada | 90% |
+| T5.3 | [Juan Carlos Orozco] | ✅ Completada | 90% |
 
-**Avance global del proyecto:** `0 / 15 tareas completadas (0%)`
+**Avance global del proyecto:** `13 / 15 tareas completadas (80%)`
 
 ---
 
@@ -118,6 +118,8 @@ Registra aquí cada avance con fecha, integrante y descripción (lo más recient
 |-------|------------|------------------|
 | 2026-07-17 | Juan Carlos Orozco | Estructura inicial del repositorio y los 3 paquetes creada. |
 | 2026-07-22 | Santiago Pachon Moreno | Acceso al proyecto, validación del mismo, análisis y creación de la clase abstracta EntidadBase |
+| 2026-07-22 | Juan Carlos Orozco |  Jerarquia de excepciones personalizadas segun la logica del negocio. |
+| 2026-07-23 | Juan Carlos Orozco |  Unificacion de codigo, simulacion final de operaciones. |
 | _AAAA-MM-DD_ | _[nombre]_ | _[descripción del avance]_ |
 
 ---

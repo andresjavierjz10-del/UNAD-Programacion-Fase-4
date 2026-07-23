@@ -1,0 +1,4 @@
+2026-07-22 20:44:17 | ERROR | Cliente invalido: Correo electronico invalido: 'correo_malo'.
+2026-07-22 20:44:17 | INFO | Cliente valido: Cliente #2: Ana Gomez <ana@softwarefj.com>
+2026-07-22 20:44:17 | INFO | Bloque finally ejecutado en creacion de servicio.
+2026-07-22 20:44:17 | ERROR | Reserva fallida: No se pudo procesar la reserva por un calculo invalido. | causa: Impuesto y descuento deben expresarse entre 0 y 1.

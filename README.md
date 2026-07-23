@@ -61,7 +61,7 @@ tarea para reflejar el avance directamente en este README.
 - [] **T1.2** Integrar el paquete 3 (sistema completo) y la simulación de 10+ operaciones.
 - [OK] **T1.3** Configurar el repositorio GitHub: ramas, `README.md` y control de versiones.
 
-### 🧑‍💻 Integrante 2 — *[Desarrollador 2]* *(Modelo de dominio - Paquete 1)*
+### 🧑‍💻 Integrante 2 — Santiago Pachon Moreno *(Modelo de dominio - Paquete 1)*
 - [ ] **T2.1** Implementar la clase abstracta `EntidadBase` y la clase `Cliente` con validaciones y encapsulación.
 - [ ] **T2.2** Implementar la clase abstracta `Servicio` (contrato común de los servicios).
 - [ ] **T2.3** Documentar en español (comentarios y docstrings) todas las clases del paquete 1.
@@ -93,9 +93,9 @@ Actualiza el **estado** y el **% de avance** de cada tarea. Estados sugeridos:
 | T1.1 | Juan Carlos Orozco | ⬜ Pendiente | 100% |
 | T1.2 | Juan Carlos Orozco | ⬜ Pendiente | 5% |
 | T1.3 | Juan Carlos Orozco | ⬜ Pendiente | 100% |
-| T2.1 | [Integrante 2] | ⬜ Pendiente | 0% |
-| T2.2 | [Integrante 2] | ⬜ Pendiente | 0% |
-| T2.3 | [Integrante 2] | ⬜ Pendiente | 0% |
+| T2.1 | Santiago Pachon Moreno | ⬜ Pendiente | 0% |
+| T2.2 | Santiago Pachon Moreno | ⬜ Pendiente | 0% |
+| T2.3 | Santiago Pachon Moreno | ⬜ Pendiente | 0% |
 | T3.1 | [Integrante 3] | ⬜ Pendiente | 0% |
 | T3.2 | [Integrante 3] | ⬜ Pendiente | 0% |
 | T3.3 | [Integrante 3] | ⬜ Pendiente | 0% |
@@ -117,6 +117,7 @@ Registra aquí cada avance con fecha, integrante y descripción (lo más recient
 | Fecha | Integrante | Avance realizado |
 |-------|------------|------------------|
 | 2026-07-17 | Juan Carlos Orozco | Estructura inicial del repositorio y los 3 paquetes creada. |
+| 2026-07-22 | Santiago Pachon Moreno | Acceso al proyecto, validación del mismo, análisis y creación de la clase abstracta EntidadBase |
 | _AAAA-MM-DD_ | _[nombre]_ | _[descripción del avance]_ |
 
 ---

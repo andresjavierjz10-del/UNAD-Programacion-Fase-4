@@ -178,10 +178,17 @@ class Cliente(EntidadBase):
 # CLASE ABSTRACTA SERVICIO (base de los tres servicios especializados)
 # ===========================================================================
 class Servicio(EntidadBase):
-    """Clase abstracta que define el contrato comun de todos los servicios.
-
-    Cada servicio concreto debe implementar calcular_costo(), describir() y
-    validar_parametros(), logrando asi el polimorfismo exigido por la guia.
+    """Clase abstracta que define la estructura y el comportamiento común de todos
+    los servicios ofrecidos por Software FJ. Su función es establecer un contrato
+    que todas las clases derivadas deben cumplir, garantizando que cada servicio
+    implemente sus propios métodos para validar parámetros, calcular costos y
+    describir su información de acuerdo con sus características particulares.
+    Además, incorpora atributos compartidos, como el nombre, la tarifa base y la
+    disponibilidad del servicio, junto con funcionalidades comunes para el cálculo
+    de impuestos y descuentos. Al ser una clase abstracta, no puede instanciarse
+    directamente, sino que sirve como base para clases especializadas, promoviendo
+    la reutilización de código y la correcta aplicación de los principios de
+    abstracción, herencia y polimorfismo de la programación orientada a objetos.
     """
 
     # Impuesto por defecto (IVA 19 %) usado en el calculo de costos.

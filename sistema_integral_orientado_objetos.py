@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """UNAD - Ingenieria de Sistemas.
 
-//Nombres: Juan Carlos Orozco Navarro, Santiago Pachon Moreno
+//Nombres: Juan Carlos Orozco Navarro, Santiago Pachon Moreno, Andres Javier Uribe Jimenez
 //Programa: Ingenieria de Sistemas
 //Codigo fuente: Autoria Juan Carlos Orozco Navarro
 //Fecha: 2026-07-17

@@ -112,7 +112,7 @@ Actualiza el **estado** y el **% de avance** de cada tarea. Estados sugeridos:
 
 ## 📝 Bitácora de avances
 
-Registra aquí cada avance con fecha, integrante y descripción (lo más reciente arriba).
+Registrar aquí cada avance con fecha, integrante y descripción (lo más reciente arriba).
 
 | Fecha | Integrante | Avance realizado |
 |-------|------------|------------------|
@@ -129,7 +129,7 @@ Registra aquí cada avance con fecha, integrante y descripción (lo más recient
 Para mantener el orden y la trazabilidad del trabajo en equipo:
 
 - **Rama principal:** `main` (código estable).
-- **Ramas de trabajo:** una por integrante o por tarea, p. ej. `feature/T4.1-excepciones`.
+- **Ramas de trabajo:** una por integrante o por tarea, p. ej. `feature/integrante-v01`.
 - **Mensajes de commit** claros y en español, referenciando la tarea:
   ```
   git commit -m "T4.1: agrega jerarquia de excepciones personalizadas"

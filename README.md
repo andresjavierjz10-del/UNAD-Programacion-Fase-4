@@ -105,7 +105,7 @@ Actualiza el **estado** y el **% de avance** de cada tarea. Estados sugeridos:
 | T5.1 | [Juan Carlos Orozco] | ✅ Completada | 90% |
 | T5.2 | [Juan Carlos Orozco] | ✅ Completada | 90% |
 | T5.3 | [Juan Carlos Orozco] | ✅ Completada | 90% |
-
+| T6.1 | Andres Javier Uribe Jimenez | ✅ Completada | 100% |
 **Avance global del proyecto:** `13 / 15 tareas completadas (80%)`
 
 ---
@@ -121,7 +121,7 @@ Registrar aquí cada avance con fecha, integrante y descripción (lo más recien
 | 2026-07-22 | Juan Carlos Orozco |  Jerarquia de excepciones personalizadas segun la logica del negocio. |
 | 2026-07-23 | Juan Carlos Orozco |  Unificacion de codigo, simulacion final de operaciones. |
 | 2026-07-24 | Santiago Pachon Moreno | Detalles finalizados junto con explicación en clase abstracta EntidadBase, clase Cliente, clase abstracta Servicio |
-| _AAAA-MM-DD_ | _[nombre]_ | _[descripción del avance]_ |
+| _2026-07-26_ | Andres Javier Uribe Jimenez | crear el menu y resto del codigo implementado tkinter |
 
 ---
 

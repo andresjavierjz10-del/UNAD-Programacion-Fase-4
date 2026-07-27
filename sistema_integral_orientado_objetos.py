@@ -80,10 +80,16 @@ class ServicioNoDisponibleError(SoftwareFJError):
 # CLASE ABSTRACTA BASE (entidades generales del sistema)
 # ===========================================================================
 class EntidadBase(ABC):
-    """Clase abstracta que representa cualquier entidad del sistema.
+    """Clase abstracta que representa cualquier entidad general del sistema de gestión.
 
-    Aporta un identificador comun y obliga a las subclases a implementar el
-    metodo describir(), lo que garantiza un comportamiento polimorfico.
+    Su propósito es servir como base para todas las entidades del programa, proporcionando
+    un identificador único común y definiendo una estructura que las clases derivadas deben
+    seguir. Al ser una clase abstracta, no puede instanciarse directamente, sino que obliga
+    a las subclases a implementar el método describir(), garantizando que cada entidad
+    proporcione su propia representación de acuerdo con sus características. Además,
+    favorece la reutilización de código, la aplicación de la herencia y el polimorfismo,
+    permitiendo que diferentes tipos de entidades compartan un comportamiento común sin
+    perder su funcionalidad específica.
     """
 
     def __init__(self, identificador):
@@ -109,10 +115,18 @@ class EntidadBase(ABC):
 # CLASE CLIENTE (validaciones robustas y encapsulacion de datos personales)
 # ===========================================================================
 class Cliente(EntidadBase):
-    """Representa a un cliente de Software FJ con sus datos personales.
-
-    Todos los datos personales se guardan como atributos privados y se validan
-    en el constructor; si algo es incorrecto se lanza ClienteInvalidoError.
+    """Representa a un cliente de la empresa Software FJ, almacenando de forma
+    segura su información personal, como el nombre, el documento de identidad
+    y el correo electrónico. Todos estos datos se encapsulan mediante atributos
+    privados y son validados desde el momento en que se crea el objeto, con el
+    fin de garantizar la integridad y consistencia de la información. Si alguno
+    de los datos ingresados no cumple las condiciones establecidas, se lanza la
+    excepción personalizada ClienteInvalidoError, evitando que se registren
+    clientes con información incorrecta dentro del sistema. Además, la clase
+    hereda de EntidadBase, por lo que comparte un identificador único e
+    implementa el método describir(), proporcionando una representación propia
+    del cliente y demostrando la aplicación de los principios de herencia,
+    encapsulación y polimorfismo de la programación orientada a objetos.
     """
 
     # Expresion regular sencilla para validar el formato del correo.
@@ -164,10 +178,17 @@ class Cliente(EntidadBase):
 # CLASE ABSTRACTA SERVICIO (base de los tres servicios especializados)
 # ===========================================================================
 class Servicio(EntidadBase):
-    """Clase abstracta que define el contrato comun de todos los servicios.
-
-    Cada servicio concreto debe implementar calcular_costo(), describir() y
-    validar_parametros(), logrando asi el polimorfismo exigido por la guia.
+    """Clase abstracta que define la estructura y el comportamiento común de todos
+    los servicios ofrecidos por Software FJ. Su función es establecer un contrato
+    que todas las clases derivadas deben cumplir, garantizando que cada servicio
+    implemente sus propios métodos para validar parámetros, calcular costos y
+    describir su información de acuerdo con sus características particulares.
+    Además, incorpora atributos compartidos, como el nombre, la tarifa base y la
+    disponibilidad del servicio, junto con funcionalidades comunes para el cálculo
+    de impuestos y descuentos. Al ser una clase abstracta, no puede instanciarse
+    directamente, sino que sirve como base para clases especializadas, promoviendo
+    la reutilización de código y la correcta aplicación de los principios de
+    abstracción, herencia y polimorfismo de la programación orientada a objetos.
     """
 
     # Impuesto por defecto (IVA 19 %) usado en el calculo de costos.

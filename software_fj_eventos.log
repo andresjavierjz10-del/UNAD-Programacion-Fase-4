@@ -100,3 +100,71 @@
 2026-07-23 17:03:59 | ERROR | 18. Procesar reserva cancelada (operacion no permitida) -> OperacionNoPermitidaError: Solo se procesan reservas confirmadas (estado actual: CANCELADA).
 2026-07-23 17:03:59 | INFO | Operacion finalizada: 18. Procesar reserva cancelada (operacion no permitida)
 2026-07-23 17:03:59 | INFO | Simulacion finalizada. Resumen: {'clientes': 1, 'servicios': 4, 'reservas': 2}
+2026-07-26 19:27:34 | INFO | Sistema Software FJ iniciado.
+2026-07-26 19:27:34 | INFO | Cliente registrado: Cliente #1: Ana Gomez <ana@softwarefj.com>
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 1. Registrar cliente valido
+2026-07-26 19:27:34 | ERROR | 2. Registrar cliente con correo invalido -> ClienteInvalidoError: Correo electronico invalido: 'luis#correo'.
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 2. Registrar cliente con correo invalido
+2026-07-26 19:27:34 | ERROR | 3. Registrar cliente con documento invalido -> ClienteInvalidoError: Documento invalido: 'ABC'. Debe ser numerico (6-12 digitos).
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 3. Registrar cliente con documento invalido
+2026-07-26 19:27:34 | INFO | Servicio creado: Sala 'Sala Innovacion' (cap. 12) - $50,000/hora
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 4. Crear servicio de sala valido
+2026-07-26 19:27:34 | INFO | Servicio creado: Equipo 'Videobeam 4K' (Proyector) - $30,000/dia
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 5. Crear servicio de alquiler de equipo valido
+2026-07-26 19:27:34 | INFO | Servicio creado: Asesoria 'Asesoria Cloud' (area DevOps) - $80,000/hora + 15% experto
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 6. Crear servicio de asesoria valido
+2026-07-26 19:27:34 | ERROR | 7. Crear servicio con tarifa invalida (negativa) -> ServicioInvalidoError: La tarifa por hora debe ser positiva.
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 7. Crear servicio con tarifa invalida (negativa)
+2026-07-26 19:27:34 | INFO | Servicio creado: Equipo 'Laptop en mantenimiento' (Laptop) - $25,000/dia
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 8. Crear servicio marcado como NO disponible
+2026-07-26 19:27:34 | INFO | Reserva creada: Reserva #100 | Ana Gomez -> Sala Innovacion | 3h | PENDIENTE
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 9. Crear reserva valida (sala, 3 horas)
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 10. Confirmar y procesar la reserva (costo con IVA)
+2026-07-26 19:27:34 | ERROR | 11. Procesar de nuevo la reserva ya procesada (no permitido) -> OperacionNoPermitidaError: Solo se procesan reservas confirmadas (estado actual: PROCESADA).
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 11. Procesar de nuevo la reserva ya procesada (no permitido)
+2026-07-26 19:27:34 | ERROR | 12. Crear reserva con duracion invalida (0 horas) -> ReservaInvalidaError: La duracion debe ser un numero positivo.
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 12. Crear reserva con duracion invalida (0 horas)
+2026-07-26 19:27:34 | ERROR | 13. Crear reserva sobre servicio NO disponible -> ServicioNoDisponibleError: El servicio 'Laptop en mantenimiento' no esta disponible.
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 13. Crear reserva sobre servicio NO disponible
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 14. Costo asesoria 5h SOLO IVA por defecto
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 15. Costo asesoria 5h con impuesto 5% y descuento 10%
+2026-07-26 19:27:34 | INFO | Reserva creada: Reserva #103 | Ana Gomez -> Videobeam 4K | 2h | PENDIENTE
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 16. Crear segunda reserva (equipo, 2 dias)
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 17. Cancelar la segunda reserva
+2026-07-26 19:27:34 | ERROR | 18. Procesar reserva cancelada (operacion no permitida) -> OperacionNoPermitidaError: Solo se procesan reservas confirmadas (estado actual: CANCELADA).
+2026-07-26 19:27:34 | INFO | Operacion finalizada: 18. Procesar reserva cancelada (operacion no permitida)
+2026-07-26 19:27:34 | INFO | Simulacion finalizada. Resumen: {'clientes': 1, 'servicios': 4, 'reservas': 2}
+2026-07-26 19:27:57 | INFO | Sistema Software FJ iniciado.
+2026-07-26 19:27:57 | INFO | Cliente registrado: Cliente #1: Ana Gomez <ana@softwarefj.com>
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 1. Registrar cliente valido
+2026-07-26 19:27:57 | ERROR | 2. Registrar cliente con correo invalido -> ClienteInvalidoError: Correo electronico invalido: 'luis#correo'.
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 2. Registrar cliente con correo invalido
+2026-07-26 19:27:57 | ERROR | 3. Registrar cliente con documento invalido -> ClienteInvalidoError: Documento invalido: 'ABC'. Debe ser numerico (6-12 digitos).
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 3. Registrar cliente con documento invalido
+2026-07-26 19:27:57 | INFO | Servicio creado: Sala 'Sala Innovacion' (cap. 12) - $50,000/hora
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 4. Crear servicio de sala valido
+2026-07-26 19:27:57 | INFO | Servicio creado: Equipo 'Videobeam 4K' (Proyector) - $30,000/dia
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 5. Crear servicio de alquiler de equipo valido
+2026-07-26 19:27:57 | INFO | Servicio creado: Asesoria 'Asesoria Cloud' (area DevOps) - $80,000/hora + 15% experto
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 6. Crear servicio de asesoria valido
+2026-07-26 19:27:57 | ERROR | 7. Crear servicio con tarifa invalida (negativa) -> ServicioInvalidoError: La tarifa por hora debe ser positiva.
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 7. Crear servicio con tarifa invalida (negativa)
+2026-07-26 19:27:57 | INFO | Servicio creado: Equipo 'Laptop en mantenimiento' (Laptop) - $25,000/dia
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 8. Crear servicio marcado como NO disponible
+2026-07-26 19:27:57 | INFO | Reserva creada: Reserva #100 | Ana Gomez -> Sala Innovacion | 3h | PENDIENTE
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 9. Crear reserva valida (sala, 3 horas)
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 10. Confirmar y procesar la reserva (costo con IVA)
+2026-07-26 19:27:57 | ERROR | 11. Procesar de nuevo la reserva ya procesada (no permitido) -> OperacionNoPermitidaError: Solo se procesan reservas confirmadas (estado actual: PROCESADA).
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 11. Procesar de nuevo la reserva ya procesada (no permitido)
+2026-07-26 19:27:57 | ERROR | 12. Crear reserva con duracion invalida (0 horas) -> ReservaInvalidaError: La duracion debe ser un numero positivo.
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 12. Crear reserva con duracion invalida (0 horas)
+2026-07-26 19:27:57 | ERROR | 13. Crear reserva sobre servicio NO disponible -> ServicioNoDisponibleError: El servicio 'Laptop en mantenimiento' no esta disponible.
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 13. Crear reserva sobre servicio NO disponible
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 14. Costo asesoria 5h SOLO IVA por defecto
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 15. Costo asesoria 5h con impuesto 5% y descuento 10%
+2026-07-26 19:27:57 | INFO | Reserva creada: Reserva #103 | Ana Gomez -> Videobeam 4K | 2h | PENDIENTE
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 16. Crear segunda reserva (equipo, 2 dias)
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 17. Cancelar la segunda reserva
+2026-07-26 19:27:57 | ERROR | 18. Procesar reserva cancelada (operacion no permitida) -> OperacionNoPermitidaError: Solo se procesan reservas confirmadas (estado actual: CANCELADA).
+2026-07-26 19:27:57 | INFO | Operacion finalizada: 18. Procesar reserva cancelada (operacion no permitida)
+2026-07-26 19:27:57 | INFO | Simulacion finalizada. Resumen: {'clientes': 1, 'servicios': 4, 'reservas': 2}

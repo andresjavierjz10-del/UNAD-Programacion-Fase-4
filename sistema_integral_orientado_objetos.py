@@ -560,82 +560,151 @@ if __name__ == "__main__":
     main()
 
 # ===========================================================================
-# INTERFAZ GRÁFICA DE USUARIO (GUI) - ACOPLADA AL FINAL
+# INTERFAZ GRÁFICA DE USUARIO (GUI) - SOLUCIONADO SIN ERROR
 # ===========================================================================
 class AplicacionGUI(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Software FJ - Digitalizar Campos (Clientes)")
-        self.geometry("600x450")
+        self.title("Software FJ - Panel de Control Central (Fase 4)")
+        self.geometry("700x550")
         self.resizable(False, False)
+        
+        # Gestor de datos para la interfaz
+        self.gestor_gui = GestorSoftwareFJ()
 
-        # Contenedor principal de campos
-        frame_campos = ttk.LabelFrame(self, text=" Captura de Campos en Tiempo Real ")
+        # --- MENÚ SUPERIOR DE NAVEGACIÓN (Pestañas) ---
+        self.notebook = ttk.Notebook(self)
+        self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # Crear los contenedores para cada opción del menú
+        self.tab_inicio = ttk.Frame(self.notebook)
+        self.tab_clientes = ttk.Frame(self.notebook)
+        self.tab_servicios = ttk.Frame(self.notebook)
+        self.tab_reservas = ttk.Frame(self.notebook)
+
+        # Añadir las opciones al Menú Visual
+        self.notebook.add(self.tab_inicio, text="  Inicio ")
+        self.notebook.add(self.tab_clientes, text="  Registrar Clientes ")
+        self.notebook.add(self.tab_servicios, text="  Registrar Servicios ")
+        self.notebook.add(self.tab_reservas, text="  Simulación de Consola ")
+
+        # Configurar cada sección del menú
+        self._configurar_tab_inicio()
+        self._configurar_tab_clientes()
+        self._configurar_tab_servicios()
+        self._configurar_tab_reservas()
+
+    def _configurar_tab_inicio(self):
+        """Pestaña de Bienvenida y Menú de estado"""
+        lbl_titulo = ttk.Label(self.tab_inicio, text="SISTEMA DE GESTIÓN SOFTWARE FJ", font=("Arial", 16, "bold"))
+        lbl_titulo.pack(pady=30)
+        
+        lbl_desc = ttk.Label(self.tab_inicio, text="Bienvenido al panel universitario interactivo.\nUse las pestañas superiores para navegar por el menú.", justify="center")
+        lbl_desc.pack(pady=10)
+        
+        self.lbl_contador = ttk.Label(self.tab_inicio, text="Estado: Sistema listo para operar.", font=("Arial", 10, "italic"))
+        self.lbl_contador.pack(pady=40)
+
+    def _configurar_tab_clientes(self):
+        """Formulario del menú para Clientes"""
+        frame_campos = ttk.LabelFrame(self.tab_clientes, text=" Captura de Campos en Tiempo Real ")
         frame_campos.pack(fill="x", padx=15, pady=15, ipady=5)
+        frame_campos.columnconfigure(1, weight=1)
 
-        # Construcción de las entradas de texto
         ttk.Label(frame_campos, text="ID de Entidad:").grid(row=0, column=0, padx=10, pady=5, sticky="w")
         self.txt_id = ttk.Entry(frame_campos)
-        self.txt_id.grid(row=0, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_id.grid(row=0, column=1, padx=10, pady=5, sticky="ew")
 
         ttk.Label(frame_campos, text="Nombre del Cliente:").grid(row=1, column=0, padx=10, pady=5, sticky="w")
         self.txt_nombre = ttk.Entry(frame_campos)
-        self.txt_nombre.grid(row=1, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_nombre.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
 
         ttk.Label(frame_campos, text="Documento (6-12 números):").grid(row=2, column=0, padx=10, pady=5, sticky="w")
         self.txt_doc = ttk.Entry(frame_campos)
-        self.txt_doc.grid(row=2, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_doc.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
 
         ttk.Label(frame_campos, text="Correo Electrónico:").grid(row=3, column=0, padx=10, pady=5, sticky="w")
         self.txt_email = ttk.Entry(frame_campos)
-        self.txt_email.grid(row=3, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_email.grid(row=3, column=1, padx=10, pady=5, sticky="ew")
 
-        # Botón para detonar las validaciones originales
-        btn_procesar = ttk.Button(self, text="Validar y Crear Instancia", command=self._procesar_campos_usuario)
+        btn_procesar = ttk.Button(self.tab_clientes, text="Validar y Guardar Cliente", command=self._procesar_campos_usuario)
         btn_procesar.pack(pady=10)
 
-        # Consola visual para retroalimentación
-        ttk.Label(self, text="Estado de las Validaciones / Consola de Errores:").pack(anchor="w", padx=15)
-        self.txt_resultado = tk.Text(self, height=8, wrap="word", bg="#f4f4f4")
-        self.txt_resultado.pack(fill="both", padx=15, pady=5, expand=True)
+        self.txt_resultado_cliente = tk.Text(self.tab_clientes, height=6, wrap="word", bg="#f4f4f4")
+        self.txt_resultado_cliente.pack(fill="both", padx=15, pady=5, expand=True)
+
+    def _configurar_tab_servicios(self):
+        """Formulario del menú para Servicios"""
+        frame_servicios = ttk.LabelFrame(self.tab_servicios, text=" Crear Nuevo Servicio Opcional ")
+        frame_servicios.pack(fill="x", padx=15, pady=15, ipady=5)
+        frame_servicios.columnconfigure(1, weight=1)
+
+        ttk.Label(frame_servicios, text="Nombre Servicio:").grid(row=0, column=0, padx=10, pady=5, sticky="w")
+        self.txt_nom_serv = ttk.Entry(frame_servicios)
+        self.txt_nom_serv.grid(row=0, column=1, padx=10, pady=5, sticky="ew")
+
+        ttk.Label(frame_servicios, text="Tarifa Base ($):").grid(row=1, column=0, padx=10, pady=5, sticky="w")
+        self.txt_tarifa_serv = ttk.Entry(frame_servicios)
+        self.txt_tarifa_serv.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
+
+        btn_crear_serv = ttk.Button(self.tab_servicios, text="Validar y Guardar Servicio", command=self._procesar_servicio_gui)
+        btn_crear_serv.pack(pady=10)
+
+        self.txt_resultado_serv = tk.Text(self.tab_servicios, height=6, wrap="word", bg="#f4f4f4")
+        self.txt_resultado_serv.pack(fill="both", padx=15, pady=5, expand=True)
+
+    def _configurar_tab_reservas(self):
+        """Sección del menú vinculada a la función main original"""
+        lbl_info = ttk.Label(self.tab_reservas, text="Simulación Automática de 18 Operaciones (Consola)", font=("Arial", 11, "bold"))
+        lbl_info.pack(pady=15)
+        
+        
+        btn_correr_sim = ttk.Button(self.tab_reservas, text=" Ejecutar Pruebas en Terminal de VS Code", command=main)
+        btn_correr_sim.pack(pady=20, ipadx=10, ipady=5)
+
+        lbl_ayuda = ttk.Label(self.tab_reservas, text="Al presionar el botón, verás todo el flujo de try/except\ncorriendo directamente en tu pantalla negra de VS Code.", justify="center")
+        lbl_ayuda.pack(pady=10)
 
     def _procesar_campos_usuario(self):
-        self.txt_resultado.delete("1.0", tk.END)
-
-        # Recolecta lo que el usuario digita en la ventana
-        usuario_id = self.txt_id.get()
-        usuario_nombre = self.txt_nombre.get()
-        usuario_doc = self.txt_doc.get()
-        usuario_email = self.txt_email.get()
-
-        # Conexión directa con la clase Cliente original de tu compañero
+        self.txt_resultado_cliente.delete("1.0", tk.END)
         try:
-            nuevo_cliente = Cliente(usuario_id, usuario_nombre, usuario_doc, usuario_email)
-            resultado_exito = f"¡ÉXITO EN VALIDACIÓN!\nObjeto guardado en memoria:\n{nuevo_cliente.describir()}"
-            self.txt_resultado.insert(tk.END, resultado_exito)
-            messagebox.showinfo("Campos Correctos", "El cliente supera las validaciones del sistema.")
-
+            nuevo_cliente = Cliente(self.txt_id.get(), self.txt_nombre.get(), self.txt_doc.get(), self.txt_email.get())
+            self.gestor_gui.registrar_cliente(nuevo_cliente)
+            
+            res = f"¡ÉXITO EN VALIDACIÓN DE EXCEPCIONES!\nObjeto guardado en memoria:\n{nuevo_cliente.describir()}"
+            self.txt_resultado_cliente.insert(tk.END, res)
+            messagebox.showinfo("Campos Correctos", "El cliente supera las validaciones.")
+            self._actualizar_resumen_inicio()
         except ClienteInvalidoError as error:
-            # Captura el error exacto que tu amigo programó arriba
-            resultado_error = f"ERROR CONTROLADO (ClienteInvalidoError):\n{error}"
-            self.txt_resultado.insert(tk.END, resultado_error)
+            self.txt_resultado_cliente.insert(tk.END, f"ERROR CONTROLADO (ClienteInvalidoError):\n{error}")
             messagebox.showerror("Error en Campos", str(error))
 
-        except Exception as error:
-            resultado_critico = f"ERROR INESPERADO:\n{error}"
-            self.txt_resultado.insert(tk.END, resultado_critico)
-            messagebox.showerror("Fatal Error", "Ocurrió un fallo en el sistema.")
+    def _procesar_servicio_gui(self):
+        self.txt_resultado_serv.delete("1.0", tk.END)
+        try:
+            tarifa = float(self.txt_tarifa_serv.get() if self.txt_tarifa_serv.get() else 0)
+            nuevo_servicio = ReservaSala(99, self.txt_nom_serv.get(), tarifa, capacidad=10)
+            self.gestor_gui.registrar_servicio(nuevo_servicio)
+            
+            res = f"¡ÉXITO EN VALIDACIÓN DE SERVICIO!\nObjeto guardado en memoria:\n{nuevo_servicio.describir()}"
+            self.txt_resultado_serv.insert(tk.END, res)
+            messagebox.showinfo("Servicio Correcto", "El servicio supera las validaciones.")
+            self._actualizar_resumen_inicio()
+        except ServicioInvalidoError as error:
+            self.txt_resultado_serv.insert(tk.END, f"ERROR CONTROLADO (ServicioInvalidoError):\n{error}")
+            messagebox.showerror("Error en Servicio", str(error))
+        except ValueError:
+            messagebox.showerror("Error de Formato", "La tarifa debe ser un número válido.")
+
+    def _actualizar_resumen_inicio(self):
+        resumen = self.gestor_gui.resumen()
+        self.lbl_contador.config(text=f"Estado del Sistema en Memoria:\nClientes Creados: {resumen['clientes']} | Servicios Creados: {resumen['servicios']}")
 
 
 # ===========================================================================
-# BLOQUE DE ARRANQUE DUAL (INTERFAZ + SIMULACIÓN ORIGINAL)
+# BLOQUE DE ARRANQUE DIRECTO DE LA INTERFAZ
 # ===========================================================================
 if __name__ == "__main__":
-    print("Abriendo formulario visual...")
-    # 1. Abre primero la ventana para que el usuario capture datos reales
+    print("Abriendo Panel Visual Universitario...")
     app = AplicacionGUI()
     app.mainloop()
-    
-    # 2. Al cerrar la ventana, corre automáticamente la simulació
-    main()
-

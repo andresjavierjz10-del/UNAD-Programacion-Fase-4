@@ -560,7 +560,7 @@ if __name__ == "__main__":
     main()
 
 # ===========================================================================
-# INTERFAZ GRÁFICA DE USUARIO (GUI) - ACOPLADA AL FINAL
+# INTERFAZ GRÁFICA DE USUARIO (GUI) - CORREGIDA
 # ===========================================================================
 class AplicacionGUI(tk.Tk):
     def __init__(self):
@@ -572,23 +572,26 @@ class AplicacionGUI(tk.Tk):
         # Contenedor principal de campos
         frame_campos = ttk.LabelFrame(self, text=" Captura de Campos en Tiempo Real ")
         frame_campos.pack(fill="x", padx=15, pady=15, ipady=5)
+        
+        # Configurar pesos de columnas para que los Entry se expandan correctamente
+        frame_campos.columnconfigure(1, weight=1)
 
-        # Construcción de las entradas de texto
+        # Construcción de las entradas de texto (Se cambió fill/expand por sticky="ew")
         ttk.Label(frame_campos, text="ID de Entidad:").grid(row=0, column=0, padx=10, pady=5, sticky="w")
         self.txt_id = ttk.Entry(frame_campos)
-        self.txt_id.grid(row=0, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_id.grid(row=0, column=1, padx=10, pady=5, sticky="ew")
 
         ttk.Label(frame_campos, text="Nombre del Cliente:").grid(row=1, column=0, padx=10, pady=5, sticky="w")
         self.txt_nombre = ttk.Entry(frame_campos)
-        self.txt_nombre.grid(row=1, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_nombre.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
 
         ttk.Label(frame_campos, text="Documento (6-12 números):").grid(row=2, column=0, padx=10, pady=5, sticky="w")
         self.txt_doc = ttk.Entry(frame_campos)
-        self.txt_doc.grid(row=2, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_doc.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
 
         ttk.Label(frame_campos, text="Correo Electrónico:").grid(row=3, column=0, padx=10, pady=5, sticky="w")
         self.txt_email = ttk.Entry(frame_campos)
-        self.txt_email.grid(row=3, column=1, padx=10, pady=5, fill="x", expand=True)
+        self.txt_email.grid(row=3, column=1, padx=10, pady=5, sticky="ew")
 
         # Botón para detonar las validaciones originales
         btn_procesar = ttk.Button(self, text="Validar y Crear Instancia", command=self._procesar_campos_usuario)
@@ -608,7 +611,7 @@ class AplicacionGUI(tk.Tk):
         usuario_doc = self.txt_doc.get()
         usuario_email = self.txt_email.get()
 
-        # Conexión directa con la clase Cliente original de tu compañero
+        # Conexión directa con la clase Cliente original
         try:
             nuevo_cliente = Cliente(usuario_id, usuario_nombre, usuario_doc, usuario_email)
             resultado_exito = f"¡ÉXITO EN VALIDACIÓN!\nObjeto guardado en memoria:\n{nuevo_cliente.describir()}"
@@ -616,7 +619,7 @@ class AplicacionGUI(tk.Tk):
             messagebox.showinfo("Campos Correctos", "El cliente supera las validaciones del sistema.")
 
         except ClienteInvalidoError as error:
-            # Captura el error exacto que tu amigo programó arriba
+            # Captura el error exacto de validación
             resultado_error = f"ERROR CONTROLADO (ClienteInvalidoError):\n{error}"
             self.txt_resultado.insert(tk.END, resultado_error)
             messagebox.showerror("Error en Campos", str(error))
@@ -625,17 +628,3 @@ class AplicacionGUI(tk.Tk):
             resultado_critico = f"ERROR INESPERADO:\n{error}"
             self.txt_resultado.insert(tk.END, resultado_critico)
             messagebox.showerror("Fatal Error", "Ocurrió un fallo en el sistema.")
-
-
-# ===========================================================================
-# BLOQUE DE ARRANQUE DUAL (INTERFAZ + SIMULACIÓN ORIGINAL)
-# ===========================================================================
-if __name__ == "__main__":
-    print("Abriendo formulario visual...")
-    # 1. Abre primero la ventana para que el usuario capture datos reales
-    app = AplicacionGUI()
-    app.mainloop()
-    
-    # 2. Al cerrar la ventana, corre automáticamente la simulació
-    main()
-

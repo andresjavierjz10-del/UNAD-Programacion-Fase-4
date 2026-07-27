@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """UNAD - Ingenieria de Sistemas.
 
-//Nombres: Juan Carlos Orozco Navarro, Santiago Pachon Moreno
+//Nombres: Juan Carlos Orozco Navarro, Santiago Pachon Moreno, Andres Javier Uribe Jimenez
 //Programa: Ingenieria de Sistemas
 //Codigo fuente: Autoria Juan Carlos Orozco Navarro
 //Fecha: 2026-07-17
@@ -15,7 +15,8 @@
 
 Curso: Programacion (213023A_2203) - Fase 4 (RAC3)
 """
-
+import tkinter as tk
+from tkinter import ttk, messagebox
 import os
 import re
 import logging
@@ -557,3 +558,84 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# ===========================================================================
+# INTERFAZ GRÁFICA DE USUARIO (GUI) - ACOPLADA AL FINAL
+# ===========================================================================
+class AplicacionGUI(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Software FJ - Digitalizar Campos (Clientes)")
+        self.geometry("600x450")
+        self.resizable(False, False)
+
+        # Contenedor principal de campos
+        frame_campos = ttk.LabelFrame(self, text=" Captura de Campos en Tiempo Real ")
+        frame_campos.pack(fill="x", padx=15, pady=15, ipady=5)
+
+        # Construcción de las entradas de texto
+        ttk.Label(frame_campos, text="ID de Entidad:").grid(row=0, column=0, padx=10, pady=5, sticky="w")
+        self.txt_id = ttk.Entry(frame_campos)
+        self.txt_id.grid(row=0, column=1, padx=10, pady=5, fill="x", expand=True)
+
+        ttk.Label(frame_campos, text="Nombre del Cliente:").grid(row=1, column=0, padx=10, pady=5, sticky="w")
+        self.txt_nombre = ttk.Entry(frame_campos)
+        self.txt_nombre.grid(row=1, column=1, padx=10, pady=5, fill="x", expand=True)
+
+        ttk.Label(frame_campos, text="Documento (6-12 números):").grid(row=2, column=0, padx=10, pady=5, sticky="w")
+        self.txt_doc = ttk.Entry(frame_campos)
+        self.txt_doc.grid(row=2, column=1, padx=10, pady=5, fill="x", expand=True)
+
+        ttk.Label(frame_campos, text="Correo Electrónico:").grid(row=3, column=0, padx=10, pady=5, sticky="w")
+        self.txt_email = ttk.Entry(frame_campos)
+        self.txt_email.grid(row=3, column=1, padx=10, pady=5, fill="x", expand=True)
+
+        # Botón para detonar las validaciones originales
+        btn_procesar = ttk.Button(self, text="Validar y Crear Instancia", command=self._procesar_campos_usuario)
+        btn_procesar.pack(pady=10)
+
+        # Consola visual para retroalimentación
+        ttk.Label(self, text="Estado de las Validaciones / Consola de Errores:").pack(anchor="w", padx=15)
+        self.txt_resultado = tk.Text(self, height=8, wrap="word", bg="#f4f4f4")
+        self.txt_resultado.pack(fill="both", padx=15, pady=5, expand=True)
+
+    def _procesar_campos_usuario(self):
+        self.txt_resultado.delete("1.0", tk.END)
+
+        # Recolecta lo que el usuario digita en la ventana
+        usuario_id = self.txt_id.get()
+        usuario_nombre = self.txt_nombre.get()
+        usuario_doc = self.txt_doc.get()
+        usuario_email = self.txt_email.get()
+
+        # Conexión directa con la clase Cliente original de tu compañero
+        try:
+            nuevo_cliente = Cliente(usuario_id, usuario_nombre, usuario_doc, usuario_email)
+            resultado_exito = f"¡ÉXITO EN VALIDACIÓN!\nObjeto guardado en memoria:\n{nuevo_cliente.describir()}"
+            self.txt_resultado.insert(tk.END, resultado_exito)
+            messagebox.showinfo("Campos Correctos", "El cliente supera las validaciones del sistema.")
+
+        except ClienteInvalidoError as error:
+            # Captura el error exacto que tu amigo programó arriba
+            resultado_error = f"ERROR CONTROLADO (ClienteInvalidoError):\n{error}"
+            self.txt_resultado.insert(tk.END, resultado_error)
+            messagebox.showerror("Error en Campos", str(error))
+
+        except Exception as error:
+            resultado_critico = f"ERROR INESPERADO:\n{error}"
+            self.txt_resultado.insert(tk.END, resultado_critico)
+            messagebox.showerror("Fatal Error", "Ocurrió un fallo en el sistema.")
+
+
+# ===========================================================================
+# BLOQUE DE ARRANQUE DUAL (INTERFAZ + SIMULACIÓN ORIGINAL)
+# ===========================================================================
+if __name__ == "__main__":
+    print("Abriendo formulario visual...")
+    # 1. Abre primero la ventana para que el usuario capture datos reales
+    app = AplicacionGUI()
+    app.mainloop()
+    
+    # 2. Al cerrar la ventana, corre automáticamente la simulació
+    main()
+
